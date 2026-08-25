@@ -1,4 +1,3 @@
-// ultron-orb-ui/app/api/chat/route.ts
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
@@ -8,8 +7,7 @@ export async function POST(req: Request) {
   try {
     const { message } = await req.json();
 
-    // Change deprecated model name here:
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const result = await model.generateContent(message);
     const response = await result.response;
